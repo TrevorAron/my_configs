@@ -11,6 +11,7 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 
 "INSTALL PLUGINS WITH :PluginInstall
+"Get hole bundle with :BundleInstall
 "Dope autocomplete plugin
 Plugin 'Valloric/YouCompleteMe'
 
@@ -24,12 +25,16 @@ Plugin 'VundleVim/Vundle.vim'
 " Nerd Tree
 Plugin 'scrooloose/nerdtree'
 
+" Block Comenter
+Plugin 'scrooloose/nerdcommenter'
+
 "Dope autocomplete plugin
 "Plugin 'Valloric/YouCompleteMe'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 "
@@ -74,3 +79,11 @@ map <C-n> :NERDTreeToggle<CR>
 "kill nerdTree if only thing left open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
+"for nerd commentor
+filetype plugin on
+
+"clear highlights
+map <C-l> :noh<CR>
+
+"smaller nerd tree
+let g:NERDTreeWinSize = 25
